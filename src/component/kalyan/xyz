@@ -1,0 +1,246 @@
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Header from "../Home/Header";
+import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
+import { Container } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
+import FAQ from "../Home/FAQ";
+import Reviews from "../Home/Reviews";
+import Footer from "../Home/Footer";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "grid",
+    gridTemplateColumns: "auto auto",
+    gap: "1rem",
+    padding: "0 1rem",
+    boxShadow: "0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1)",
+    justifyContent: "center",
+    textAlign: "center",
+    [theme.breakpoints.up("lg")]: {
+      gridTemplateColumns: "150px auto",
+      gridTemplateRows: "auto",
+      gridTemplateAreas: `
+        "logo title"
+        "logo counter"
+      `,
+    },
+  },
+  logoContainer: {
+    gridArea: "logo",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  logo: {
+    width: "150px",
+    height: "150px",
+    borderRadius: "50%",
+    border: "2px solid black",
+    [theme.breakpoints.down("sm")]: {
+      width: "100px",
+      position: "relative",
+      right: "350px",
+    },
+  },
+  titleContainer: {
+    gridArea: "title",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      fontSize: "15px",
+      position: "relative",
+      right: "200px",
+    },
+    [theme.breakpoints.down("lg")]: {
+      width: "100%",
+      fontSize: "50px",
+    },
+  },
+
+  titleTypography: {
+    width: "100%",
+    fontSize: "25px",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      fontSize: "15px",
+    },
+  },
+  titleTypography1: {
+    width: "100%",
+    fontSize: "15px",
+
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      fontSize: "15px",
+      position: "relative",
+      right: "100px",
+    },
+    [theme.breakpoints.down("lg")]: {
+      width: "100%",
+      fontSize: "25px",
+    },
+  },
+
+  counterContainer: {
+    gridArea: "counter",
+    marginLeft: "25%",
+  },
+  linkContainer: {
+    display: "flex",
+    justifyContent: "flex-end", // Aligns the content to the right
+    gap: "1rem",
+    marginTop: "1rem",
+    marginRight: "6rem", // Adding right margin
+    wordSpacing: "0.9rem", // Adds space between each word within the links
+  },
+  decoration: {
+    textDecoration: "none",
+    color: theme.palette.primary.main,
+    textAlign: "right",
+    fontFamily: "Arial, sans-serif", // Font style
+    fontWeight: "bold",
+    fontSize: "1rem", // Font size
+    margin: "0", // Adjusts margin to remove default spacing
+  },
+
+  // paper: {
+  //   height: "100px",
+  //   marginTop: "100px",
+  //   position: "relative",
+  //   right: "150px",
+  //   marginBottom: theme.spacing(1),
+  //   padding: theme.spacing(1),
+  //   border: "4px solid #000033",
+  //   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+  //   "&:hover": {
+  //     boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.2)",
+  //   },
+  //   marginRight: theme.spacing(40), // Adding right margin
+  //   marginLeft: theme.spacing(40), // Adding left margin
+  // },
+
+  paper: {
+    padding: theme.spacing(2),
+    boxShadow: theme.shadows[2],
+    width: "80%",
+    border: "5px solid #000033",
+  },
+  editorChoice: {
+    backgroundColor: "#000033",
+    color: "#fff",
+    padding: theme.spacing(1),
+    borderRadius: "0px 0px 4px 4px",
+    fontSize: "0.75rem",
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    width: "20%",
+    position: "relative",
+    top: "-18px",
+    right: "30px",
+    textAlign: "center",
+    marginBottom: theme.spacing(2),
+  },
+  offerDetails: {
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+  },
+  getOfferButton: {
+    backgroundColor: "#009995",
+    color: "#fff",
+    borderRadius: "4px",
+    padding: theme.spacing(1, 2),
+    textTransform: "uppercase",
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      marginBottom: 0,
+    },
+  },
+  daysLeft: {
+    marginLeft: theme.spacing(2),
+  },
+
+ 
+}));
+
+const Amazone = ({ title, price, uses, verified, daysLeft }) => {
+  const classes = useStyles();
+
+  return (
+    <section>
+   
+      <Container>
+        <Grid container spacing={2} className={classes.container}>
+          <Grid item xs={12} lg={6} className={classes.logoContainer}>
+            <img
+              src="https://sgi3.offerscdn.net/i/zdcs-merchants/05kie42h3YvHwjr4G1w80Qq.h90.w170.flpad.v1319.bffffff.png"
+              alt="View All Amazon Coupons"
+              className={classes.logo}
+            />
+          </Grid>
+          <Grid item xs={12} lg={12} className={classes.titleContainer}>
+            <Typography
+              className={classes.titleTypography}
+              variant="h4"
+              gutterBottom
+              fontWeight="bold"
+            >
+              Verified Amazon Coupons & Promo Codes
+            </Typography>
+            <Typography variant="body2" color="textSecondary" gutterBottom>
+              Trusted Partner since 2016
+            </Typography>
+          </Grid>
+          <Grid item xs={12} lg={6} className={classes.counterContainer}>
+            <Typography
+              className={classes.titleTypography1}
+              variant="subtitle1"
+            >
+              25 Coupons Validated by{" "}
+              <Link
+                href="https://www.offers.com/about/experts/"
+                className={classes.decoration}
+              >
+                Our Experts
+              </Link>{" "}
+              on <time dateTime="2024-02-22">Feb 22, 2024</time>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} className={classes.linkContainer}>
+            <Typography variant="body2">
+              <Link href="#why-trust-us" className={classes.decoration}>
+                Coupons
+              </Link>
+            </Typography>
+            <Typography variant="body2">
+              <Link href="#why-trust-us" className={classes.decoration}>
+                Why
+              </Link>
+            </Typography>
+            <Typography variant="body2">
+              <Link href="#store-info" className={classes.decoration}>
+                Store
+              </Link>
+            </Typography>
+            <Typography variant="body2">
+              <Link href="#faqs" className={classes.decoration}>
+                FAQs
+              </Link>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
+
+    
+    </section>
+  );
+};
+
+export default Amazone;
